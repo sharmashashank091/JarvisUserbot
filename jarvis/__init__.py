@@ -45,8 +45,7 @@ ENV = os.environ.get("ENV", False)
 
 # Bot Logs setup:
 if bool(ENV):
-    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get(
-        "CONSOLE_LOGGER_VERBOSE", "False"))
+    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
     if CONSOLE_LOGGER_VERBOSE:
         basicConfig(
@@ -86,8 +85,7 @@ if bool(ENV):
     PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "True"))
 
     # Console verbose logging
-    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get(
-        "CONSOLE_LOGGER_VERBOSE", "False"))
+    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
     # SQL Database URI
     DB_URI = os.environ.get("DATABASE_URL", None)
@@ -119,8 +117,7 @@ if bool(ENV):
     AUTOPIC_COMMENT = os.environ.get("AUTOPIC_COMMENT", None)
 
     # Cbutton
-    PRIVATE_CHANNEL_BOT_API_ID = os.environ.get(
-        "PRIVATE_CHANNEL_BOT_API_ID", None)
+    PRIVATE_CHANNEL_BOT_API_ID = os.environ.get("PRIVATE_CHANNEL_BOT_API_ID", None)
 
     # SUDOUSERS
     SUDO_USERS = os.environ.get("SUDO_USERS", None)
@@ -154,8 +151,7 @@ if bool(ENV):
 
     # Custom Module
     CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
-    CUSTOM_ANIMATED_PACK_NAME = os.environ.get(
-        "CUSTOM_ANIMATED_PACK_NAME", None)
+    CUSTOM_ANIMATED_PACK_NAME = os.environ.get("CUSTOM_ANIMATED_PACK_NAME", None)
 
     # Pm Permit Img
     PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
@@ -190,8 +186,7 @@ if bool(ENV):
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     G_DRIVE_AUTH_TOKEN_DATA = os.environ.get("G_DRIVE_AUTH_TOKEN_DATA", None)
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
-    TEMP_DOWNLOAD_DIRECTORY = os.environ.get(
-        "TEMP_DOWNLOAD_DIRECTORY", "./downloads")
+    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./downloads")
 else:
     # Put your ppe vars here if you are using local hosting
     PLACEHOLDER = None
@@ -230,4 +225,4 @@ else:
         sclient = Connect(Config.ANTI_SPAMINC_TOKEN)
     except Exception as e:
         sclient = None
-        sedprint.info('[Warning] - ' + e)
+        sedprint.info("[Warning] - " + e)
