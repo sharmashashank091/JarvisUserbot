@@ -4,21 +4,24 @@ import os
 import sys
 import time
 from distutils.util import strtobool as sb
-from logging import DEBUG, INFO, basicConfig, getLogger
+from logging import basicConfig
+from logging import DEBUG
+from logging import getLogger
+from logging import INFO
 
 import pylast
 from antispaminc.connect import Connect
 from dotenv import load_dotenv
-from pylast import LastFMNetwork, md5
+from pylast import LastFMNetwork
+from pylast import md5
 from pySmartDL import SmartDL
 from requests import get
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
+from .function import jarvisfunction as topfunc
 from jarvis.jconfig import Config
 from var import Var
-
-from .function import jarvisfunction as topfunc
 
 Lastupdate = time.time()
 sedprint = logging.getLogger("WARNING")
