@@ -4,24 +4,21 @@ import os
 import sys
 import time
 from distutils.util import strtobool as sb
-from logging import basicConfig
-from logging import DEBUG
-from logging import getLogger
-from logging import INFO
+from logging import DEBUG, INFO, basicConfig, getLogger
 
 import pylast
 from antispaminc.connect import Connect
 from dotenv import load_dotenv
-from pylast import LastFMNetwork
-from pylast import md5
+from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
 from requests import get
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from .function import jarvisfunction as topfunc
 from jarvis.jconfig import Config
 from var import Var
+
+from .function import jarvisfunction as topfunc
 
 Lastupdate = time.time()
 sedprint = logging.getLogger("WARNING")
@@ -46,8 +43,7 @@ ENV = os.environ.get("ENV", False)
 
 # Bot Logs setup:
 if bool(ENV):
-    CONSOLE_LOGGER_VERBOSE = sb(
-        os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
+    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
     if CONSOLE_LOGGER_VERBOSE:
         basicConfig(
@@ -56,14 +52,15 @@ if bool(ENV):
         )
     else:
         basicConfig(
-            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-            level=INFO)
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
+        )
     LOGS = getLogger(__name__)
 
     # Check if the config was edited by using the already used variable.
     # Basically, its the 'virginity check' for the config file ;)
     CONFIG_CHECK = os.environ.get(
-        "___________PLOX_______REMOVE_____THIS_____LINE__________", None)
+        "___________PLOX_______REMOVE_____THIS_____LINE__________", None
+    )
 
     if CONFIG_CHECK:
         LOGS.info(
@@ -86,8 +83,7 @@ if bool(ENV):
     PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "True"))
 
     # Console verbose logging
-    CONSOLE_LOGGER_VERBOSE = sb(
-        os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
+    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
     # SQL Database URI
     DB_URI = os.environ.get("DATABASE_URL", None)
@@ -119,8 +115,7 @@ if bool(ENV):
     AUTOPIC_COMMENT = os.environ.get("AUTOPIC_COMMENT", None)
 
     # Cbutton
-    PRIVATE_CHANNEL_BOT_API_ID = os.environ.get("PRIVATE_CHANNEL_BOT_API_ID",
-                                                None)
+    PRIVATE_CHANNEL_BOT_API_ID = os.environ.get("PRIVATE_CHANNEL_BOT_API_ID", None)
 
     # SUDOUSERS
     SUDO_USERS = os.environ.get("SUDO_USERS", None)
@@ -154,8 +149,7 @@ if bool(ENV):
 
     # Custom Module
     CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
-    CUSTOM_ANIMATED_PACK_NAME = os.environ.get("CUSTOM_ANIMATED_PACK_NAME",
-                                               None)
+    CUSTOM_ANIMATED_PACK_NAME = os.environ.get("CUSTOM_ANIMATED_PACK_NAME", None)
 
     # Pm Permit Img
     PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
@@ -190,8 +184,7 @@ if bool(ENV):
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     G_DRIVE_AUTH_TOKEN_DATA = os.environ.get("G_DRIVE_AUTH_TOKEN_DATA", None)
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
-    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY",
-                                             "./downloads")
+    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./downloads")
 else:
     # Put your ppe vars here if you are using local hosting
     PLACEHOLDER = None
@@ -202,10 +195,8 @@ if not os.path.exists("bin"):
     os.mkdir("bin")
 
 binaries = {
-    "https://raw.githubusercontent.com/yshalsager/megadown/master/megadown":
-    "bin/megadown",
-    "https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py":
-    "bin/cmrudl",
+    "https://raw.githubusercontent.com/yshalsager/megadown/master/megadown": "bin/megadown",
+    "https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py": "bin/cmrudl",
 }
 
 for binary, path in binaries.items():
