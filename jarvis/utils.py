@@ -196,8 +196,10 @@ from asyncio import subprocess as asyncsub
 from os import remove
 from time import gmtime, strftime
 from traceback import format_exc
+
 from telethon import events
-from jarvis import bot, BOTLOG_CHATID, LOGSPAMMER
+
+from jarvis import BOTLOG_CHATID, LOGSPAMMER, bot
 
 
 def register(**args):
@@ -337,6 +339,7 @@ def register(**args):
         return wrapper
 
     return decorator
+
 
 async def progress(current, total, event, start, type_of_ps, file_name=None):
     """Generic progress_callback for both
