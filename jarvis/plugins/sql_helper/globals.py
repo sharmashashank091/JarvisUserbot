@@ -1,5 +1,5 @@
 try:
-    from jarvis.modules.sql_helper import SESSION, BASE
+    from jarvis.modules.sql_helper import BASE, SESSION
 except ImportError:
     raise AttributeError
 
