@@ -33,8 +33,8 @@ async def permitpm(event):
         and not (await event.get_sender()).bot
     ):
         try:
-            from jarvis.modules.sql_helper.globals import gvarstatus
-            from jarvis.modules.sql_helper.pm_permit_sql import is_approved
+            from jarvis.plugins.sql_helper.globals import gvarstatus
+            from jarvis.plugins.sql_helper.pm_permit_sql import is_approved
         except AttributeError:
             return
         apprv = is_approved(event.chat_id)
