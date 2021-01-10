@@ -115,8 +115,8 @@ async def auto_accept(event):
         and not (await event.get_sender()).bot
     ):
         try:
-            from jarvis.modules.sql_helper.globals import gvarstatus
-            from jarvis.modules.sql_helper.pm_permit_sql import approve, is_approved
+            from jarvis.plugins.sql_helper.globals import gvarstatus
+            from jarvis.plugins.sql_helper.pm_permit_sql import approve, is_approved
         except AttributeError:
             return
 
@@ -156,7 +156,7 @@ async def auto_accept(event):
 async def notifoff(noff_event):
     """ For .notifoff command, stop getting notifications from unapproved PMs. """
     try:
-        from jarvis.modules.sql_helper.globals import addgvar
+        from jarvis.plugins.sql_helper.globals import addgvar
     except AttributeError:
         await noff_event.edit("`Running on Non-SQL mode!`")
         return
@@ -168,7 +168,7 @@ async def notifoff(noff_event):
 async def notifon(non_event):
     """ For .notifoff command, get notifications from unapproved PMs. """
     try:
-        from jarvis.modules.sql_helper.globals import delgvar
+        from jarvis.plugins.sql_helper.globals import delgvar
     except AttributeError:
         await non_event.edit("`Running on Non-SQL mode!`")
         return
@@ -180,8 +180,8 @@ async def notifon(non_event):
 async def approvepm(apprvpm):
     """ For .approve command, give someone the permissions to PM you. """
     try:
-        from jarvis.modules.sql_helper.globals import gvarstatus
-        from jarvis.modules.sql_helper.pm_permit_sql import approve
+        from jarvis.plugins.sql_helper.globals import gvarstatus
+        from jarvis.plugins.sql_helper.pm_permit_sql import approve
     except AttributeError:
         await apprvpm.edit("`Running on Non-SQL mode!`")
         return
@@ -228,7 +228,7 @@ async def approvepm(apprvpm):
 @register(outgoing=True, pattern=f"^{i}disapprove$")
 async def disapprovepm(disapprvpm):
     try:
-        from jarvis.modules.sql_helper.pm_permit_sql import dissprove
+        from jarvis.plugins.sql_helper.pm_permit_sql import dissprove
     except BaseException:
         await disapprvpm.edit("`Running on Non-SQL mode!`")
         return
@@ -275,7 +275,7 @@ async def blockpm(block):
         uid = block.chat_id
 
     try:
-        from jarvis.modules.sql_helper.pm_permit_sql import dissprove
+        from jarvis.plugins.sql_helper.pm_permit_sql import dissprove
 
         dissprove(uid)
     except AttributeError:
@@ -311,7 +311,7 @@ async def add_pmsg(cust_msg):
     if not PM_AUTO_BAN:
         return await cust_msg.edit("You need to set `PM_AUTO_BAN` to `True`")
     try:
-        import jarvis.modules.sql_helper.globals as sql
+        import jarvis.plugins.sql_helper.globals as sql
     except AttributeError:
         await cust_msg.edit("`Running on Non-SQL mode!`")
         return
