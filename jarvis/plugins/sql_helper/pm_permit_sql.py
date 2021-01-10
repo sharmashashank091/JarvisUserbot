@@ -1,8 +1,8 @@
 try:
-    from jarvis.modules.sql_helper import SESSION, BASE
+    from jarvis.modules.sql_helper import BASE, SESSION
 except ImportError:
     raise AttributeError
-from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
+from sqlalchemy import Column, String
 
 
 class PMPermit(BASE):
