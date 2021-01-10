@@ -501,9 +501,8 @@ def errors_handler(func):
             ftext += result
 
     return wrapper
-        
-        
-        
+
+
 def remove_plugin(shortname):
     try:
         try:
